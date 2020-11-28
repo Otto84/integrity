@@ -1,9 +1,9 @@
 {
-  "name": "dstorage",
+  "name": "integrity",
   "version": "0.1.0",
-  "description": "Decentralized File Storage",
-  "author": "Dapp University",
-  "homepage": ".",
+  "description": "a decentralized drop box service",
+  "author": "Ottavio Calabrese",
+  "homepage": "http://.",
   "dependencies": {
     "@truffle/hdwallet-provider": "^1.1.0",
     "babel-polyfill": "6.26.0",
@@ -47,5 +47,17 @@
   ],
   "devDependencies": {
     "gh-pages": "^2.2.0"
+  },
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Otto84/integrity.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Otto84/integrity/issues"
   }
 }

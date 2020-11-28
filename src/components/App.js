@@ -1,4 +1,4 @@
-import DStorage from '../abis/DStorage.json'
+import Integrity from '../abis/Integrity.json'
 import React, { Component } from 'react';
 import Navbar from './Navbar'
 import Main from './Main'
@@ -28,6 +28,7 @@ class App extends Component {
     }
   }
 
+  //connecting the frontend to the contract through web3.js
   async loadBlockchainData() {
     const web3 = window.web3
     // Load account
@@ -35,23 +36,23 @@ class App extends Component {
     this.setState({ account: accounts[0] })
     // Network ID
     const networkId = await web3.eth.net.getId()
-    const networkData = DStorage.networks[networkId]
+    const networkData = Integrity.networks[networkId]
     if(networkData) {
       // Assign contract
-      const dstorage = new web3.eth.Contract(DStorage.abi, networkData.address)
-      this.setState({ dstorage })
+      const integrity = new web3.eth.Contract(Integrity.abi, networkData.address)
+      this.setState({ integrity })
       // Get files amount
-      const filesCount = await dstorage.methods.fileCount().call()
+      const filesCount = await integrity.methods.fileCount().call()
       this.setState({ filesCount })
       // Load files&sort by the newest
       for (var i = filesCount; i >= 1; i--) {
-        const file = await dstorage.methods.files(i).call()
+        const file = await integrity.methods.files(i).call()
         this.setState({
           files: [...this.state.files, file]
         })
       }
     } else {
-      window.alert('DStorage contract not deployed to detected network.')
+      window.alert('Integrity contract not deployed to detected network.')
     }
   }
 
@@ -89,7 +90,7 @@ class App extends Component {
       if(this.state.type === ''){
         this.setState({type: 'none'})
       }
-      this.state.dstorage.methods.uploadFile(result[0].hash, result[0].size, this.state.type, this.state.name, description).send({ from: this.state.account }).on('transactionHash', (hash) => {
+      this.state.integrity.methods.uploadFile(result[0].hash, result[0].size, this.state.type, this.state.name, description).send({ from: this.state.account }).on('transactionHash', (hash) => {
         this.setState({
          loading: false,
          type: null,
@@ -107,7 +108,7 @@ class App extends Component {
     super(props)
     this.state = {
       account: '',
-      dstorage: null,
+      integrity: null,
       files: [],
       loading: false,
       type: null,

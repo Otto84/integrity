@@ -1,10 +1,22 @@
-pragma solidity ^0.5.0;
+//SPDX-License-Identifier: (esempio) GPL-3.0
+pragma solidity ^0.5.16;
 
-contract DStorage {
-  string public name = 'DStorage';
+///@title 'Integrity' - a decentralized drop box service (the title is due to the security of the integrity data inside a hashing and/or blockchain mixed togheter)
+///@author Ottavio Calabrese
+///@notice You can use this service for transfer or share files through the blockchain and IPFS decentralized database
+
+contract Integrity {
+
+  // state variable
+  string public name = 'Integrity';
+
+  ///@dev fileCount is setting to zero by default
   uint public fileCount = 0;
+
+  //mapping
   mapping(uint => File) public files;
 
+  // struct of the file that can be uploaded
   struct File {
     uint fileId;
     string fileHash;
@@ -21,7 +33,7 @@ contract DStorage {
     string fileHash,
     uint fileSize,
     string fileType,
-    string fileName, 
+    string fileName,
     string fileDescription,
     uint uploadTime,
     address payable uploader
@@ -29,6 +41,9 @@ contract DStorage {
 
   constructor() public {
   }
+
+  ///@notice this function allow to upload a file inside a dropbox
+  ///        and add some require statement explained one by one
 
   function uploadFile(string memory _fileHash, uint _fileSize, string memory _fileType, string memory _fileName, string memory _fileDescription) public {
     // Make sure the file hash exists
@@ -44,7 +59,7 @@ contract DStorage {
     // Make sure file size is more than 0
     require(_fileSize>0);
 
-    // Increment file id
+    // Increment file id setted to 0 by default
     fileCount ++;
 
     // Add File to the contract
