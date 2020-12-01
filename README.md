@@ -2,7 +2,7 @@
 
 
 ## 🔧 Project :
-Is service like a cloud storage but decentralized
+A service like a cloud storage but decentralized
 
 Here i did prepare a contract that use IPFS for storage in a hashing some files,
 like a decentralized Cloud.
