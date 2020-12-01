@@ -25,6 +25,7 @@ contract('Integrity', ([deployer, uploader]) => {
       assert.equal(name, 'Integrity')
     })
   })
+  
 
   describe('file', async () => {
     let result, fileCount

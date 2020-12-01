@@ -1,0 +1,2 @@
+testnet: Ropsten
+address: 0x097AfC372b1D29b50A3556D4bCf020a44CF8AB12
