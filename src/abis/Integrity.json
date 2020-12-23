@@ -6052,12 +6052,12 @@
         }
       },
       "links": {},
-      "address": "0x955bBa2E7b3bF475cF5E5C2Ab766045A6a687958",
-      "transactionHash": "0x1ada444913799b063c97843d0c47aa05f2c5a5ae0d8036a0383fb0bf2269915a"
+      "address": "0xdC48369A433691E1A4cca42DBd2e895B215B69C1",
+      "transactionHash": "0x37d5843dd006a46b0cc96a9c25f4b5d59eaba8021657a28fda02ebd89c1c6e7a"
     }
   },
-  "schemaVersion": "3.3.1",
-  "updatedAt": "2020-12-01T05:23:03.603Z",
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-12-23T22:11:54.072Z",
   "networkType": "ethereum",
   "devdoc": {
     "author": "Ottavio Calabrese",
