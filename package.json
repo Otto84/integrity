@@ -47,7 +47,7 @@
   ],
   "devDependencies": {
     "@truffle/hdwallet-provider": "^1.2.0",
-    "gh-pages": "^2.2.0"
+    "gh-pages": "^5.0.0"
   },
   "main": "truffle-config.js",
   "directories": {
